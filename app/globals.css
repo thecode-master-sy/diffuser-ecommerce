@@ -1,26 +1,55 @@
+@import url("https://fonts.cdnfonts.com/css/helvetica-neue-55");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #f4f0ea;
+    --foreground: hsl(27.3 25.6% 16.9%);
+    --card-background: #f0e9e0;
+    --fs-body: clamp(12px, 0.9vw, 20px);
+    --fs-h1: clamp(42px, 8vw, 200px);
+    --fs-h3: clamp(20px, 1.4vw, 32px);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-helvetica-neue: var(--font-helvetica-neue);
+    --font-mono: var(--font-geist-mono);
+    --color-card: var(--card-background);
+    --text-body: var(--fs-body);
+    --text-h1: var(--fs-h1);
+    --text-h2: var(--fs-h2);
+    --text-h3: var(--fs-h3);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-helvetica-neue);
+    font-size: var(--fs-body);
+}
+
+.featured-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.featured-product.active {
+    background-color: var(--card-background);
+}
+
+.featured-product img {
+    width: 30px;
+    aspect-ratio: 1/1.5;
+    cursor: pointer;
+}
+
+.navigation-links a {
+    display: inline-block;
+    padding: 8px;
 }
