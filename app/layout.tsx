@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { helveticaNeue } from "@/app/font";
+import ReactLenis from "@/lib/smooth-scroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ReactLenis />
       <body
         className={`${helveticaNeue.variable} ${geistMono.variable} font-helvetica-neue antialiased`}
       >
