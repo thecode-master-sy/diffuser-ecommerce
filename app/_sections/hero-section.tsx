@@ -1,14 +1,62 @@
-"use-client";
+"use client";
 import { BagIcon } from "@/components/bag-icon";
 import { MakeWarmer } from "@/components/make-warmer";
 import { SearchIcon } from "@/components/search-icon";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.to(".video-player", {
+        scrollTrigger: {
+          trigger: ".hero-container",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+        y: -100,
+        duration: 2,
+      });
+
+      gsap.to(".nav-bar", {
+        scrollTrigger: {
+          trigger: ".hero-container",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+        y: -200,
+        duration: 2,
+      });
+
+      gsap.to(".overlay", {
+        scrollTrigger: {
+          trigger: ".hero-container",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+        opacity: 0.5,
+        duration: 1,
+      });
+    },
+    { scope: containerRef },
+  );
   return (
-    <div className="relative min-h-screen z-1 text-white grid grid-rows-[auto_1fr]">
-      <nav className="uppercase border-b border-white/10 flex justify-between items-center px-4 py-2 relative z-1">
+    <div
+      ref={containerRef}
+      className="min-h-screen z-1 text-white grid grid-rows-[auto_1fr] hero-container sticky top-0"
+    >
+      <nav className="uppercase nav-bar fixed left-0 right-0 top-0 border-b border-white/10 flex justify-between items-center px-4 py-2  z-1">
         <div className="flex items-center gap-7">
           <h2 className="font-helvetica-neue uppercase relative font-medium text-xl">
             Diffuser
@@ -49,23 +97,24 @@ export default function HeroSection() {
       </nav>
 
       {/* Background Video */}
-      <div className="absolute top-0 left-0 w-full h-full  bg-foreground/20"></div>
+      <div className="absolute top-0 left-0 w-full h-full overlay  bg-foreground opacity-10"></div>
+
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover object-[center_bottom] -z-1"
+        className="absolute video-player top-0 left-0 w-full h-full object-cover object-[center_bottom] -z-1"
       >
         <source src="/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Your content goes here */}
-      <div className="relative z-1 grid items-end px-4 pb-4 w-full">
+      <div className="relative z-1 h-screen grid items-end px-4 pb-4 w-full">
         <div>
           <div>
-            <h1 className="hidden md:block text-white font-helvetica-neue  uppercase text-h1 -tracking-[0.05em] leading-[1.05]">
+            <h1 className="hidden  md:block text-white font-helvetica-neue  uppercase text-h1 -tracking-[0.05em] leading-[1.05]">
               Discover Our <br />
               New Collections
             </h1>

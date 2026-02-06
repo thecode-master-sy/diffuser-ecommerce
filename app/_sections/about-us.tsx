@@ -2,7 +2,7 @@ import { ArrowRightUp } from "@/components/arrow-right-up";
 
 export default function AboutSection() {
   return (
-    <div className="min-h-screen relative flex justify-center items-center">
+    <div className="min-h-screen relative flex justify-center items-center z-2">
       <div className="absolute top-0 left-0 w-full h-full bg-black/10 backdrop-blur-sm"></div>
       {/* Background Video */}
       <video

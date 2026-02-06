@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function DiscoverDiffusers() {
   return (
-    <div className="min-h-screen bg-background text-foreground px-4 py-12">
+    <div className="min-h-screen bg-background text-foreground px-4 py-12 relative z-2">
       <h1 className="uppercase text-h2 -tracking-[0.03em]">
         Discover Diffsuers
       </h1>
