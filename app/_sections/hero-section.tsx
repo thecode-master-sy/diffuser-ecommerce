@@ -14,7 +14,7 @@ export default function HeroSection() {
             Diffuser
           </h2>
         </div>
-        <ul className="hidden md:flex navigation-links">
+        <ul className="hidden md:flex navigation-links text-caps">
           <Link href="/shop">
             <li>shop</li>
           </Link>
@@ -42,7 +42,7 @@ export default function HeroSection() {
             <BagIcon />
           </div>
 
-          <button className="bg-white/10 py-1 px-2 cursor-pointer uppercase">
+          <button className="bg-white/10 py-1 px-2 cursor-pointer text-caps uppercase">
             login
           </button>
         </div>
@@ -65,8 +65,12 @@ export default function HeroSection() {
       <div className="relative z-1 grid items-end px-4 pb-4 w-full">
         <div>
           <div>
-            <h1 className="text-white font-helvetica-neue  uppercase text-h1 -tracking-[0.05em] leading-[1.02]">
-              Discover Our <br /> New Collections
+            <h1 className="hidden md:block text-white font-helvetica-neue  uppercase text-h1 -tracking-[0.05em] leading-[1.05]">
+              Discover Our <br />
+              New Collections
+            </h1>
+            <h1 className="md:hidden text-white font-helvetica-neue  uppercase text-h1 -tracking-[0.05em] leading-[1.05]">
+              Discover Our Collections
             </h1>
           </div>
 
@@ -97,16 +101,16 @@ export default function HeroSection() {
                 />
               </div>
             </div>
-            <button className="bg-card text-foreground w-full md:w-auto min-w-[300px] px-4 py-4 flex flex-col gap-2 justify-center cursor-pointer">
-              <div className="flex justify-between">
-                <div>
-                  <h3 className="text-foreground text-h3 uppercase">
+            <button className="bg-card text-foreground w-full md:w-auto min-w-[300px] px-4 py-4 gap-2 cursor-pointer">
+              <div className="relative">
+                <div className="text-left">
+                  <h3 className="text-foreground text-left text-h3 uppercase">
                     The white reed
                   </h3>
-                  <p className="font-light  ">Air scented Reed Collections</p>
+                  <p className="font-light">Air scented Reed Collections</p>
                 </div>
 
-                <div>
+                <div className="absolute right-0 top-0">
                   <BagIcon />
                 </div>
               </div>

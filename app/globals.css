@@ -5,9 +5,11 @@
     --background: #f4f0ea;
     --foreground: hsl(27.3 25.6% 16.9%);
     --card-background: #f0e9e0;
-    --fs-body: clamp(12px, 0.9vw, 20px);
-    --fs-h1: clamp(42px, 8vw, 200px);
-    --fs-h3: clamp(20px, 1.4vw, 32px);
+    --fs-body: clamp(11px, 1.1vw, 20px);
+    --fs-caps: clamp(11px, 0.95vw, 18px);
+    --fs-h1: clamp(40px, 8vw, 200px);
+    --fs-h2: clamp(24px, 6vw, 48px);
+    --fs-h3: clamp(15px, 1.4vw, 32px);
 }
 
 @theme inline {
@@ -17,6 +19,7 @@
     --font-mono: var(--font-geist-mono);
     --color-card: var(--card-background);
     --text-body: var(--fs-body);
+    --text-caps: var(--fs-caps);
     --text-h1: var(--fs-h1);
     --text-h2: var(--fs-h2);
     --text-h3: var(--fs-h3);
@@ -52,4 +55,14 @@ body {
 .navigation-links a {
     display: inline-block;
     padding: 8px;
+}
+
+.tab {
+    padding-inline: 8px;
+    padding-block: 4px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: white;
 }
